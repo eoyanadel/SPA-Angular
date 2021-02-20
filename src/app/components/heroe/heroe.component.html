@@ -1,0 +1,32 @@
+<div class="row row-cols-1 row-cols-md-2 g-4 animated fadeIn fast">
+    <div class="col col-lg-4">
+        <h1> {{ heroe.nombre | uppercase }}</h1>
+    </div>
+    <div class="col">
+        <ng-container *ngIf="heroe.casa == 'DC'; else elseTemplate">
+            <img src="../../../assets/img/DC.png" class="img-thumbnail border-0 img-casa" alt="...">
+        </ng-container>
+        <ng-template #elseTemplate>
+            <img src="../../../assets/img/Marvel.png" class="img-thumbnail border-0 img-casa" alt="...">
+        </ng-template>
+
+    </div>
+</div>
+
+
+<hr>
+<div class="card mb-3 animated fadeIn" style="max-width: 100%;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img [src]="heroe.img" [alt]="heroe.nombre" class="img-fluid">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ heroe.nombre }}</h5>
+                <p class="card-text">{{ heroe.bio }}</p>
+                <p class="card-text"><small class="text-muted"> Año de aparición: {{ heroe.aparicion | date: 'y' }}</small></p>
+                <button (click)="verHeroes()" type="button" class="btn btn-outline-danger btn-block">Regresar</button>
+            </div>
+        </div>
+    </div>
+</div>
